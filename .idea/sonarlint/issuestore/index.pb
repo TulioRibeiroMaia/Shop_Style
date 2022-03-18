@@ -191,15 +191,11 @@ l
 <.idea/libraries/Maven__org_modelmapper_modelmapper_3_0_0.xml,b\e\be8ce9b8f43173179c395521c26e82a394869c66
 i
 9.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_8_4.xml,9\2\92caafdd2526018d01191b6da5b57a33c45dfab0
-x
-Hms-customer/src/main/java/shop/style/customer/MsCustomerApplication.java,e\2\e2036b48e6bae42d33a10c6ed25c34336d27b3ab
 †
 Vms-customer/src/main/java/shop/style/customer/exception/ResourceNotFoundException.java,3\d\3d3b2b380d13454fa90883f3f0972ee3bbcb1524
 €
 Pms-customer/src/main/java/shop/style/customer/Repository/CustomerRepository.java,2\6\260c9987afe3aa5d0982e4ae9ebcad1740b036de
 l
 <ms-customer/src/main/java/shop/style/customer/Enums/Sex.java,4\c\4c278d6976f3c8abc87ac25243e2f68d2753b82e
-z
-Jms-customer/src/main/java/shop/style/customer/Service/CustomerService.java,b\6\b66dbe5e5de4d0cd2e89776cee5cd3f4e9a59048
 o
 ?ms-customer/src/main/java/shop/style/customer/DTO/TokenDTO.java,b\c\bcc04f577521e36f9dab5d817d923938789abacf
