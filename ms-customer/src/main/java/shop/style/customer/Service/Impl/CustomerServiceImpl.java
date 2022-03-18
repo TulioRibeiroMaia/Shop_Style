@@ -8,7 +8,7 @@ import shop.style.customer.DTO.FormDTO.CustomerFormDTO;
 import shop.style.customer.Entity.Customer;
 import shop.style.customer.Repository.CustomerRepository;
 import shop.style.customer.Service.CustomerService;
-import shop.style.customer.exception.ResourceNotFoundException;
+import shop.style.customer.Exception.ResourceNotFoundException;
 
 import java.util.Optional;
 

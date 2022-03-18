@@ -1,4 +1,4 @@
-package shop.style.customer.exception;
+package shop.style.customer.Exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 
