@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Shop-Style.iml" filepath="$PROJECT_DIR$/.idea/Shop-Style.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-catalog/ms-catalog.iml" filepath="$PROJECT_DIR$/ms-catalog/ms-catalog.iml" />
       <module fileurl="file://$PROJECT_DIR$/ms-customer/ms-customer.iml" filepath="$PROJECT_DIR$/ms-customer/ms-customer.iml" />
     </modules>
   </component>
