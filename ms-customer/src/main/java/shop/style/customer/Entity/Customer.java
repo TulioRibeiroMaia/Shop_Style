@@ -26,13 +26,12 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     public Sex sex;
 
-    @Column(unique = true)
     private String CPF;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
 
-    @Column(unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
     private String password;

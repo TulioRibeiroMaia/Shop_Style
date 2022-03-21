@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (customer.isPresent()) {
             return modelMapper.map(customer.get(), CustomerDTO.class);
         }
-        throw new ResourceNotFoundException("Customer not found");
+        throw new ResourceNotFoundException("Customer not found" + id);
     }
 
     @Override
@@ -49,6 +49,6 @@ public class CustomerServiceImpl implements CustomerService {
 
             return modelMapper.map(updatedCustomer, CustomerDTO.class);
         }
-        throw new ResourceNotFoundException("Customer not found");
+        throw new ResourceNotFoundException("Customer not found" + id);
     }
 }

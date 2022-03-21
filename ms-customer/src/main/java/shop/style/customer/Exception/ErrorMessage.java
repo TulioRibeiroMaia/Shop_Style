@@ -8,6 +8,7 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 public class ErrorMessage {
+
     private int statusCode;
 
     private Date timestamp;
