@@ -24,5 +24,5 @@ public class Product {
 
     private Boolean active = true;
 
-    private List<Category> variations = new ArrayList<>();
+    private List<Variation> variations = new ArrayList<>();
 }
