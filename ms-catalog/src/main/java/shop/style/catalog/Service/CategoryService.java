@@ -13,10 +13,10 @@ public interface CategoryService {
 
     List<Category> getCategory();
 
-    CategoryDTO updateCategory(Long id, CategoryFormDTO body);
+    CategoryDTO updateCategory(String  id, CategoryFormDTO body);
 
-    void deleteCategory(Long id);
+    void deleteCategory(String id);
 
-    List<Product> findProductByCategory(Long id);
+    List<Product> findProductByCategory(String  id);
 
 }

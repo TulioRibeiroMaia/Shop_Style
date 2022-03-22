@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface VariationService {
 
-    VariationDTO searchVariation(Long id);
+    VariationDTO searchVariation(String  id);
 
     VariationDTO saveVariation(VariationFormDTO body);
 
-    VariationDTO updateVariation(Long id, VariationFormDTO body);
+    VariationDTO updateVariation(String id, VariationFormDTO body);
 
-    void deleteVariation(Long id);
+    void deleteVariation(String  id);
 }

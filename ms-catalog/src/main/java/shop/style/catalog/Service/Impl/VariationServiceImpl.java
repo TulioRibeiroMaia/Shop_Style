@@ -12,7 +12,7 @@ public class VariationServiceImpl implements VariationService {
 
 
     @Override
-    public VariationDTO searchVariation(Long id) {
+    public VariationDTO searchVariation(String id) {
         return null;
     }
 
@@ -22,12 +22,12 @@ public class VariationServiceImpl implements VariationService {
     }
 
     @Override
-    public VariationDTO updateVariation(Long id, VariationFormDTO body) {
+    public VariationDTO updateVariation(String id, VariationFormDTO body) {
         return null;
     }
 
     @Override
-    public void deleteVariation(Long id) {
+    public void deleteVariation(String  id) {
 
     }
 }

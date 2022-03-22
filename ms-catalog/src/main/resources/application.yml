@@ -1,2 +1,11 @@
 server:
   port: 8081
+
+spring:
+  application:
+    name: 'ms-catalog'
+  data:
+    mongodb:
+      user:
+      password:
+      uri: mongodb://localhost:27017/catalog

@@ -22,17 +22,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDTO updateCategory(Long id, CategoryFormDTO body) {
+    public CategoryDTO updateCategory(String  id, CategoryFormDTO body) {
         return null;
     }
 
     @Override
-    public void deleteCategory(Long id) {
+    public void deleteCategory(String id) {
 
     }
 
     @Override
-    public List<Product> findProductByCategory(Long id) {
+    public List<Product> findProductByCategory(String id) {
         return null;
     }
 }
