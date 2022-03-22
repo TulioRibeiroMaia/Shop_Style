@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import shop.style.customer.Exception.DTO.FieldErrorDTO;
+import org.hibernate.exception.ConstraintViolationException;
 
-import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -31,7 +31,7 @@ public class ControllerExceptionHandler {
         return new ErrorMessage(
                 HttpStatus.NOT_EXTENDED.value(),
                 new Date(),
-                ex.getLocalizedMessage(),
+                ex.getMessage(),
                 request.getDescription(false));
     }
 
@@ -69,11 +69,11 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    public ErrorMessage constraintViolationException(IllegalArgumentException ex, WebRequest request) {
+    public ErrorMessage constraintViolationException(ConstraintViolationException ex, WebRequest request) {
         return new ErrorMessage(
                 HttpStatus.BAD_REQUEST.value(),
                 new Date(),
-                ex.getLocalizedMessage(),
+                ex.getCause().getLocalizedMessage(),
                 request.getDescription(false));
     }
 
@@ -83,7 +83,7 @@ public class ControllerExceptionHandler {
         return new ErrorMessage(
                 HttpStatus.BAD_REQUEST.value(),
                 new Date(),
-                ex.getLocalizedMessage(),
+                ex.getRootCause().getLocalizedMessage(),
                 request.getDescription(false));
     }
 }
