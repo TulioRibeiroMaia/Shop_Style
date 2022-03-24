@@ -13,7 +13,8 @@ import shop.style.customer.Exception.ResourceNotFoundException;
 import java.util.Optional;
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class
+CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -23,6 +24,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO saveCustomer(CustomerFormDTO body) {
+        Optional<Customer> customerOptionalEmail = this.customerRepository.findByEmail(body.getEmail());
+        Optional<Customer> customerOptionalCPF = this.customerRepository.findByCPF(body.getCPF());
+        if (customerOptionalEmail.isPresent()) {
+            throw new ResourceNotFoundException("Customer by Email: " + body.getEmail() + " already exists");
+        }
+        if (customerOptionalCPF.isPresent()) {
+            throw new ResourceNotFoundException("Customer by CPF: " + body.getCPF() + " already exists");
+        }
         Customer customer = modelMapper.map(body, Customer.class);
         Customer savedCustomer = this.customerRepository.save(customer);
         return modelMapper.map(savedCustomer, CustomerDTO.class);
