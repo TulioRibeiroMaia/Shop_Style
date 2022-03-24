@@ -5,16 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryFormDTO {
-
-    @NotBlank
-    private String name;
+public class ProductCategoryFormDTO {
 
     @NotNull
-    private Boolean active = true;
+    private List<@NotBlank String> category_ids;
+
 }

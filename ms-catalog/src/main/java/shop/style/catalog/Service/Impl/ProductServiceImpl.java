@@ -7,6 +7,7 @@ import shop.style.catalog.DTO.Form.ProductFormDTO;
 import shop.style.catalog.DTO.ProductDTO;
 import shop.style.catalog.Entity.Product;
 import shop.style.catalog.Exception.ResourceNotFoundException;
+import shop.style.catalog.Repository.CategoryRepository;
 import shop.style.catalog.Repository.ProductRepository;
 import shop.style.catalog.Service.ProductService;
 
@@ -21,6 +22,9 @@ public class ProductServiceImpl implements ProductService {
     private ModelMapper modelMapper;
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
     public ProductDTO save(ProductFormDTO body) {
@@ -45,16 +49,6 @@ public class ProductServiceImpl implements ProductService {
             return modelMapper.map(product.get(), ProductDTO.class);
         }
         throw new ResourceNotFoundException("ID " + id);
-    }
-
-    @Override
-    public ProductDTO searchProduct(String id) {
-        Optional<Product> product = this.productRepository.findById(id);
-
-        if (product.isPresent()) {
-            return modelMapper.map(product.get(), ProductDTO.class);
-        }
-        throw new ResourceNotFoundException("ID" + id);
     }
 
     @Override

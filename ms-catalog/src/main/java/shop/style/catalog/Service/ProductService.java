@@ -13,8 +13,6 @@ public interface ProductService {
 
     ProductDTO searchProductByID(String id);
 
-    ProductDTO searchProduct(String id);
-
     ProductDTO updateProduct(String id, ProductFormDTO body);
 
     void deleteProduct(String id);

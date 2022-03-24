@@ -25,6 +25,4 @@ public class Variation {
     private BigDecimal price;
 
     private Integer quantity;
-
-
 }
