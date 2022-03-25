@@ -23,7 +23,7 @@ public class Product {
 
     private String description;
 
-    private Boolean active = true;
+    private Boolean active;
 
     private Category category;
 

@@ -20,7 +20,7 @@ public class ProductFormDTO {
     private String description;
 
     @NotNull
-    private Boolean active = true;
+    private Boolean active;
 
     @NotNull
     private List<@NotBlank String> category_ids;

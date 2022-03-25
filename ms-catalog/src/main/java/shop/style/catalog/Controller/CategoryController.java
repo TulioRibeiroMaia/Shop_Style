@@ -25,14 +25,13 @@ public class CategoryController {
 
     @GetMapping
     public List<CategoryDTO> getCategory() {
-        return categoryService.getCategory();
+        return categoryService.getAllCategory();
     }
 
     @GetMapping("/{id}/products")
     public CategoryDTO getCategoryProduct(@PathVariable String id) {
-        return categoryService.listAllProductsByCategory(id);
+        return (CategoryDTO) categoryService.listAllProductsByCategory(id);
     }
-
 
     @PutMapping("{id}")
     public CategoryDTO updateCategory(@PathVariable String id, @RequestBody @Valid CategoryFormDTO body) {

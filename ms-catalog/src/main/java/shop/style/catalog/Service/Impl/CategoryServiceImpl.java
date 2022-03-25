@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shop.style.catalog.DTO.CategoryDTO;
 import shop.style.catalog.DTO.Form.CategoryFormDTO;
+import shop.style.catalog.DTO.ProductDTO;
 import shop.style.catalog.Entity.Category;
+import shop.style.catalog.Entity.Product;
 import shop.style.catalog.Exception.ResourceNotFoundException;
 import shop.style.catalog.Repository.CategoryRepository;
 import shop.style.catalog.Repository.ProductRepository;
@@ -35,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<CategoryDTO> getCategory() {
+    public List<CategoryDTO> getAllCategory() {
         List<Category> categories = categoryRepository.findAll();
 
         return categories.stream().map(category -> modelMapper.map(category, CategoryDTO.class))
@@ -67,29 +69,18 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDTO listAllProductsByCategory(String id) {
-        Optional<Category> categoryOptional = this.categoryRepository.findById(id);
+    public List<ProductDTO> listAllProductsByCategory(String id) {
+        Optional<Category> category = this.categoryRepository.findById(id);
 
-        if (categoryOptional.isPresent()) {
-            return modelMapper.map(categoryOptional.get(), CategoryDTO.class);
+        if(!category.isPresent()) {
+            List<Product> allproducts = category.get().getProducts();
+
+            return allproducts.stream().map(product -> modelMapper.map(product, ProductDTO.class))
+                    .collect(Collectors.toList());
         }
-        throw new ResourceNotFoundException("ID" + id);
+        throw new ResourceNotFoundException("ID " + id);
     }
 }
-//        if (!categoryOptional.isPresent()) {
-//            throw new ResourceNotFoundException("ID " + id);
-//        }
-//        if (!productOptional.isPresent()) {
-//            throw new ResourceNotFoundException("ID " + body.getProductID());
-//        }
-//
-//        Category category = categoryOptional.get();
-//        Product product = productOptional.get();
-//
-//        category.setProducts((List<Product>) product);
-//        this.categoryRepository.save(category);
-//
-//        return modelMapper.map(category, CategoryDTO.class);
 
 
 
