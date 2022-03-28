@@ -18,5 +18,4 @@ public interface CategoryService {
 
     List<ProductDTO> listAllProductsByCategory(String id);
 
-
 }
