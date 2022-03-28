@@ -13,7 +13,6 @@ import shop.style.catalog.Repository.CategoryRepository;
 import shop.style.catalog.Repository.ProductRepository;
 import shop.style.catalog.Service.ProductService;
 
-import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -56,25 +55,6 @@ public class ProductServiceImpl implements ProductService {
         }
         return modelMapper.map(savedProduct, ProductDTO.class);
     }
-
-
-
-
-
-
-//        Optional<Category> categoryOptional = categoryRepository.findById(id);
-//
-//        if (categoryOptional.isPresent()) {
-//            Category updatedCategory = modelMapper.map(body, Category.class);
-//            updatedCategory.setId(categoryOptional.get().getId());
-//            this.categoryRepository.save(updatedCategory);
-//
-//            Product product = modelMapper.map(body, Product.class);
-//            Product savedProduct = this.productRepository.save(product);
-//
-//            return modelMapper.map(savedProduct, ProductDTO.class);
-//        }
-//        throw new ResourceNotFoundException("ID " + id);
 
     @Override
     public List<ProductDTO> getAllProduct() {
