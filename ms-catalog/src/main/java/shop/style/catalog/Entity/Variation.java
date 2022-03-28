@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 public class Variation {
 
     @Id
-    private Long id;
+    private String  id;
 
     private String color;
 
