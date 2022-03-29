@@ -1,0 +1,10 @@
+
+e
+java:S1128"CRemove this unused import 'org.springframework.data.annotation.Id'.(áŠ¿¸ıÿÿÿÿ8õš¡„ı/
+[
+java:S1128">Remove this unused import 'shop.style.catalog.Entity.Product'.(Á¾®ô8øÔ§ı/
+]
+java:S1128"@Remove this unused import 'shop.style.catalog.Entity.Variation'.(ˆâ¹÷8‚›£„ı/
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8øÔ§ı/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(çÎã×ÿÿÿÿÿ
