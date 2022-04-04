@@ -37,12 +37,12 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public void savePurchase(PurchaseFormDTO body) {
-
         CustomerActiveDTO customer = customerClient.findById(body.getUser_id());
 
         if (!customer.getActive()) {
             throw new UserNotActiveException(body.getUser_id());
         }
+        System.out.println(customer);
 
         Payment payment = paymentRepository.findById(body.getPayment_id()).orElseThrow(() -> new PaymentNotFoundException(body.getPayment_id()));
 
@@ -51,9 +51,8 @@ public class PurchaseServiceImpl implements PurchaseService {
         }
 
         List<CartFormDTO> cartFormDTO = body.getCart();
-
         for (CartFormDTO items : cartFormDTO) {
-            VariationProductDTO variationProductDTO = catalogClient.getById(String.valueOf(items.getVariant_id()));
+            VariationProductDTO variationProductDTO = catalogClient.getById(items.getVariant_id());
             ProductActiveDTO productActiveDTO = catalogClient.findById(variationProductDTO.getProduct_id());
             if (!productActiveDTO.getActive()) {
                 throw new ProductNotActiveException(productActiveDTO.getId());
