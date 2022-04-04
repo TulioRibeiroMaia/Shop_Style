@@ -13,7 +13,7 @@ import javax.validation.constraints.Positive;
 public class CartFormDTO {
 
     @NotNull
-    private Long variant_id;
+    private String variant_id;
 
     @NotNull
     private Long quantity;

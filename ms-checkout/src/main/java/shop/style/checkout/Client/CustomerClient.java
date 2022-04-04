@@ -8,6 +8,6 @@ import shop.style.checkout.DTO.CustomerActiveDTO;
 @FeignClient("customer")
 public interface CustomerClient {
 
-    @GetMapping("v1/users/{id}")
+    @GetMapping("/v1/users/{id}")
     CustomerActiveDTO findById(@PathVariable Long id);
 }
