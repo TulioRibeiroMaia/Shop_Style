@@ -12,8 +12,9 @@ spring:
     database: postgresql
     hibernate:
       ddl-auto: create-drop
-    application: checkout
     defer-datasource-initialization: true
+  application:
+    name: checkout
   sql:
     init:
       mode: always
