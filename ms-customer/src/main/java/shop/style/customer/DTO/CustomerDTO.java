@@ -28,7 +28,7 @@ public class CustomerDTO {
 
     private String email;
 
-    private boolean active = true;
+    private Boolean active = true;
 
 
 }

@@ -43,5 +43,5 @@ public class Customer {
     private String password;
 
     @Column(nullable = false)
-    private boolean active = true;
+    private Boolean active = true;
 }

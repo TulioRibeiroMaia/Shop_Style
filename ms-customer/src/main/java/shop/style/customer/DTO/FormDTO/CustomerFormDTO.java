@@ -45,5 +45,5 @@ public class CustomerFormDTO {
     private String password;
 
     @NotNull
-    private Boolean active = true;
+    private Boolean  active = true;
 }
