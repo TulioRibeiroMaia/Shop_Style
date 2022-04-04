@@ -1,0 +1,6 @@
+
+X
+java:S2166"CRename this class to remove "Exception" or correct its inheritance.(æè–9
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤Ø‡˜
+f
+java:S2259j"KA "NullPointerException" could be thrown; "getRootCause()" can return null.(’Ôå¤úÿÿÿÿ
