@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: customer
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/shopstyle-customer
@@ -11,19 +13,11 @@ spring:
     database: postgresql
     hibernate:
       ddl-auto: create-drop
-    aplication:
-      name: customer
     defer-datasource-initialization: true
   sql:
     init:
       mode: always
       platform: postgresql
-
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /documentation
 
 eureka:
   client:
