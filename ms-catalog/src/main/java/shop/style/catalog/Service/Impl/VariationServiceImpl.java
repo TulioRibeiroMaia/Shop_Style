@@ -36,7 +36,9 @@ public class VariationServiceImpl implements VariationService {
         product.get().getVariations().add(savedVariation);
         productRepository.save(product.get());
 
-        return modelMapper.map(savedVariation, VariationDTO.class);
+        VariationDTO variationDTO = modelMapper.map(savedVariation, VariationDTO.class);
+        variationDTO.setProduct_id(product.get().getId());
+        return variationDTO;
     }
 
     @Override
@@ -44,7 +46,11 @@ public class VariationServiceImpl implements VariationService {
         Optional<Variation> variation = variationRepository.findById(id);
 
         if (variation.isPresent()) {
-            return modelMapper.map(variation.get(), VariationDTO.class);
+            Optional<Product> byVariationsId = productRepository.findByVariationsId(variation.get().getId());
+            VariationDTO variationDTO = modelMapper.map(variation.get(), VariationDTO.class);
+            variationDTO.setProduct_id(byVariationsId.get().getId());
+
+            return variationDTO;
         }
         throw new ResourceNotFoundException("ID " + id);
     }

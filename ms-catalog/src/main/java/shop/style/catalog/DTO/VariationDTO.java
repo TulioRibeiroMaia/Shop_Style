@@ -26,5 +26,5 @@ public class VariationDTO {
 
     private Integer quantity;
 
-
+    private String product_id;
 }

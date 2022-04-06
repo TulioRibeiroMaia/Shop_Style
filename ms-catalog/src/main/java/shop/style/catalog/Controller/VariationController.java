@@ -23,7 +23,7 @@ public class VariationController {
     }
 
     @GetMapping("/{id}")
-    public VariationDTO searchByID(@PathVariable String id) {
+    public VariationDTO searchById(@PathVariable String id) {
         return variationService.searchVariation(id);
     }
 

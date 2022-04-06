@@ -3,12 +3,9 @@ package shop.style.catalog.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import shop.style.catalog.DTO.Form.ProductFormDTO;
 import shop.style.catalog.DTO.ProductDTO;
-import shop.style.catalog.Entity.Product;
 import shop.style.catalog.Service.ProductService;
 
 import javax.validation.Valid;
@@ -33,7 +30,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ProductDTO searchByID(@PathVariable String id) {
+    public ProductDTO findById(@PathVariable String id) {
         return productService.searchProductByID(id);
     }
 
