@@ -15,6 +15,8 @@ spring:
     defer-datasource-initialization: true
   application:
     name: checkout
+  rabbitmq:
+    addresses: amqps://ucjqyuop:0uDpnIJKYbt9eCCaT8f1w5SXf6HaiZOB@jackal.rmq.cloudamqp.com/ucjqyuop
   sql:
     init:
       mode: always
