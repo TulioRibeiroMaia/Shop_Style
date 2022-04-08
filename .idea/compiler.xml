@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ms-history" />
         <module name="ms-customer" />
         <module name="ms-catalog" />
         <module name="ms-checkout" />
@@ -18,6 +19,7 @@
       <module name="ms-catalog" target="11" />
       <module name="ms-checkout" target="16" />
       <module name="ms-customer" target="11" />
+      <module name="ms-history" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -26,6 +28,7 @@
       <module name="ms-catalog" options="-parameters" />
       <module name="ms-checkout" options="-parameters" />
       <module name="ms-customer" options="-parameters" />
+      <module name="ms-history" options="-parameters" />
     </option>
   </component>
 </project>

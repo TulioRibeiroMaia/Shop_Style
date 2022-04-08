@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: catalog
+  rabbitmq:
+    addresses: amqps://ucjqyuop:0uDpnIJKYbt9eCCaT8f1w5SXf6HaiZOB@jackal.rmq.cloudamqp.com/ucjqyuop
   data:
     mongodb:
       user:
