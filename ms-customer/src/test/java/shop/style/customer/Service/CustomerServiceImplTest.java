@@ -48,7 +48,7 @@ class CustomerServiceImplTest {
     @Test
     @DisplayName("Deve retornar um cliente pelo ID informado")
     void shouldSearchACostumerByIDTest() {
-        CustomerDTO customerDTO = this.customerService.searchCustomer(1L);
+        CustomerDTO customerDTO = this.customerService.findCustomerById(1L);
 
         assertNotNull(customerDTO);
         assertEquals(1L, customerDTO.getId());
@@ -57,7 +57,7 @@ class CustomerServiceImplTest {
     @Test
     @DisplayName("Deve lançar exceção Resource Not Found ao procurar por um ID que não existe")
     void shouldSearchACustomerByInvalidIDTest() {
-        assertThrows(ResourceNotFoundException.class, () -> this.customerService.searchCustomer(90L));
+        assertThrows(ResourceNotFoundException.class, () -> this.customerService.findCustomerById(90L));
     }
 
     @Test

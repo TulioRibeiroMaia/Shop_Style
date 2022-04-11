@@ -38,7 +38,7 @@ CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO searchCustomer(Long id) {
+    public CustomerDTO findCustomerById(Long id) {
         Optional<Customer> customer = this.customerRepository.findById(id);
 
         if (customer.isPresent()) {

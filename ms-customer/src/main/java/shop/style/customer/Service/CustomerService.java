@@ -8,7 +8,7 @@ public interface CustomerService {
 
     CustomerDTO saveCustomer(CustomerFormDTO body);
 
-    CustomerDTO searchCustomer(Long id);
+    CustomerDTO findCustomerById(Long id);
 
     CustomerDTO updateCustomer(Long id, CustomerFormDTO body);
 }
