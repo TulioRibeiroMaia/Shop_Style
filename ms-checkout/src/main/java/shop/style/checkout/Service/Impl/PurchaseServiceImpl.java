@@ -9,6 +9,7 @@ import shop.style.checkout.DTO.CustomerActiveDTO;
 import shop.style.checkout.DTO.Form.CartFormDTO;
 import shop.style.checkout.DTO.Form.PurchaseFormDTO;
 import shop.style.checkout.DTO.ProductActiveDTO;
+import shop.style.checkout.DTO.RabbitMessage.PurchaseMessage;
 import shop.style.checkout.DTO.VariationMessage;
 import shop.style.checkout.DTO.VariationProductDTO;
 import shop.style.checkout.Entity.Payment;
@@ -20,7 +21,9 @@ import shop.style.checkout.Repository.PaymentRepository;
 import shop.style.checkout.Service.PurchaseService;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PurchaseServiceImpl implements PurchaseService {
@@ -44,17 +47,16 @@ public class PurchaseServiceImpl implements PurchaseService {
     public void savePurchase(PurchaseFormDTO body) {
         BigDecimal totalPrice = BigDecimal.ZERO;
 
-        CustomerActiveDTO customer = customerClient.findById(body.getUser_id());
+        Optional<CustomerActiveDTO> customer = Optional.ofNullable(customerClient.findById(body.getUser_id()));
 
-        if (!customer.getActive()) {
+        if (!customer.get().getActive()) {
             throw new UserNotActiveException(body.getUser_id());
         }
-        Payment payment = paymentRepository.findById(body.getPayment_id()).orElseThrow(() -> new PaymentNotFoundException(body.getPayment_id()));
 
-        System.out.println(payment);
-        if (!payment.getStatus()) {
-            System.out.println(payment.getStatus());
-            throw new PaymentNotActiveException(payment.getId());
+        Optional<Payment> payment = Optional.ofNullable(paymentRepository.findById(body.getPayment_id()).orElseThrow(() -> new PaymentNotFoundException(body.getPayment_id())));
+
+        if (!payment.get().getStatus()) {
+            throw new PaymentNotActiveException(payment.get().getId());
         }
 
         List<CartFormDTO> cartFormDTO = body.getCart();
@@ -62,9 +64,9 @@ public class PurchaseServiceImpl implements PurchaseService {
         for (CartFormDTO items : cartFormDTO) {
 
             VariationProductDTO variationProductDTO = catalogClient.searchById(items.getVariant_id());
-            ProductActiveDTO productActiveDTO = catalogClient.findById(variationProductDTO.getProduct_id());
-            if (!productActiveDTO.getActive()) {
-                throw new ProductNotActiveException(productActiveDTO.getId());
+            Optional<ProductActiveDTO> productActiveDTO = Optional.ofNullable(catalogClient.findById(variationProductDTO.getProduct_id()));
+            if (!productActiveDTO.get().getActive()) {
+                throw new ProductNotActiveException(productActiveDTO.get().getId());
             }
 
             BigDecimal itemPrice = variationProductDTO.getPrice().multiply(BigDecimal.valueOf(items.getQuantity()));
@@ -75,6 +77,14 @@ public class PurchaseServiceImpl implements PurchaseService {
                 .map(items -> modelMapper.map(items, VariationMessage.class)).toList();
 
         rabbitMQService.publishMessageInCatalog(variationMessage);
+
+        PurchaseMessage purchaseMessage = new PurchaseMessage(
+                body.getUser_id(), body.getPayment_id(),
+                totalPrice, LocalDate.now(),
+                variationMessage
+        );
+
+        rabbitMQService.publishMessageInHistory(purchaseMessage);
     }
 
 }

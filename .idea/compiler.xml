@@ -19,7 +19,7 @@
       <module name="ms-catalog" target="11" />
       <module name="ms-checkout" target="16" />
       <module name="ms-customer" target="11" />
-      <module name="ms-history" target="11" />
+      <module name="ms-history" target="16" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
