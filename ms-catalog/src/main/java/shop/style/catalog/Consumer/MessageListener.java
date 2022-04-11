@@ -20,7 +20,6 @@ public class MessageListener {
 
     @RabbitListener (queues = MQConfig.CATALOG_QUEUE)
     public void messageListener(List<VariationMessageDTO> variationsMessagesDTO) {
-        System.out.println(variationsMessagesDTO);
 
         variationsMessagesDTO.forEach(variationMessageDTO -> {
             Variation variation = variationRepository.findById(variationMessageDTO.getVariant_id())
