@@ -4,6 +4,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shop.style.checkout.Config.MQConfig;
+import shop.style.checkout.DTO.RabbitMessage.PurchaseMessage;
 import shop.style.checkout.DTO.VariationMessage;
 
 import java.util.List;
@@ -16,5 +17,9 @@ public class RabbitMQServiceImpl {
 
     public void publishMessageInCatalog(List<VariationMessage> variationMessage) {
         template.convertAndSend(MQConfig.EXCHANGE, MQConfig.CATALOG_ROUTING_KEY, variationMessage);
+    }
+
+    public void publishMessageInHistory(PurchaseMessage purchaseMessage) {
+        template.convertAndSend(MQConfig.EXCHANGE, MQConfig.HISTORY_ROUTING_KEY, purchaseMessage);
     }
 }
