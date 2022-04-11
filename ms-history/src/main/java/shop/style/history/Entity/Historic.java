@@ -24,4 +24,8 @@ public class Historic {
     @DBRef
     private List<Purchase> purchases = new ArrayList<>();
 
+    public Historic(Long userId) {
+
+        this.userId = userId;
+    }
 }

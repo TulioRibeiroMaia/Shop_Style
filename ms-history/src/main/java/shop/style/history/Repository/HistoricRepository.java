@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface HistoricRepository extends MongoRepository<Historic, String> {
 
-    Optional<Historic> findUserById(Long userId);
+    Optional<Historic> findCustomerById(Long userId);
 }

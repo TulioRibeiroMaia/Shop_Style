@@ -16,7 +16,7 @@ public class HistoricController {
     private HistoricServiceImpl historicServiceImpl;
 
     @GetMapping(value = "/{userId}")
-    public HistoricDTO getUserHistoric(@PathVariable Long userId) {
-        return historicServiceImpl.getUserHistoric(userId);
+    public HistoricDTO findHistoricByUser(@PathVariable Long userId) {
+        return historicServiceImpl.findHistoricByUser(userId);
     }
 }
