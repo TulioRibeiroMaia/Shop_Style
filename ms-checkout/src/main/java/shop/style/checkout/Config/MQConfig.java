@@ -12,12 +12,19 @@ import org.springframework.context.annotation.Configuration;
 public class MQConfig {
 
     public static final String CATALOG_QUEUE = "catalog_queue";
+    public static final String HISTORY_QUEUE = "history_queue";
     public static final String EXCHANGE = "message_exchange";
     public static final String CATALOG_ROUTING_KEY = "catalog_routingKey";
+    public static final String HISTORY_ROUTING_KEY = "history_routingKey";
 
     @Bean
     public Queue catalogQueue() {
         return new Queue(CATALOG_QUEUE);
+    }
+
+    @Bean
+    public Queue historyQueue() {
+        return new Queue(HISTORY_QUEUE);
     }
 
     @Bean
@@ -31,6 +38,14 @@ public class MQConfig {
                 .bind(catalogQueue)
                 .to(exchange)
                 .with(CATALOG_ROUTING_KEY);
+    }
+
+    @Bean
+    public Binding historyBinding(Queue historyQueue, TopicExchange exchange) {
+        return BindingBuilder
+                .bind(historyQueue)
+                .to(exchange)
+                .with(HISTORY_ROUTING_KEY);
     }
 
     @Bean
