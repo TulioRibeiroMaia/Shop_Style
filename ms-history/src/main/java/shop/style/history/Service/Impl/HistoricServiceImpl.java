@@ -8,6 +8,7 @@ import shop.style.history.Client.CheckoutClient;
 import shop.style.history.Client.CustomerClient;
 import shop.style.history.DTO.*;
 import shop.style.history.DTO.RabbitMessage.PurchaseRabbitMessageDTO;
+import shop.style.history.DTO.RabbitMessage.VariationMessageDTO;
 import shop.style.history.Entity.Historic;
 import shop.style.history.Entity.Purchase;
 import shop.style.history.Entity.Variation;
@@ -51,7 +52,7 @@ public class HistoricServiceImpl implements HistoricServive {
     @Override
     public HistoricDTO findHistoricByUser(Long userId) {
         List<PurchaseDTO> purchasesDTO = new ArrayList<>();
-        Historic historic = historicRepository.findCustomerById(userId)
+        Historic historic = historicRepository.findByUserId(userId)
                 .orElseThrow(() -> new HistoricNotFoundException(userId));
 
         CustomerDTO customerDTO = customerClient.findCustomerById(historic.getUserId());
@@ -72,6 +73,7 @@ public class HistoricServiceImpl implements HistoricServive {
                         productDTO.setSize(variationCustomerDTO.getSize());
                         productDTO.setQuantity(variationCustomerDTO.getQuantity());
                         productDTO.setPrice(variationCustomerDTO.getPrice());
+                        System.out.println(productDTO);
                         return productDTO;
                     }).toList();
 
@@ -84,7 +86,7 @@ public class HistoricServiceImpl implements HistoricServive {
     @Override
     public void  saveANewPurchase(PurchaseRabbitMessageDTO body) {
 
-        Optional<Historic> historic = historicRepository.findCustomerById(body.getUserId());
+        Optional<Historic> historic = historicRepository.findByUserId(body.getUser_id());
         if (historic.isPresent()) {
             Purchase savedInPurchase = modelMapper.map(body, Purchase.class);
 
@@ -95,10 +97,30 @@ public class HistoricServiceImpl implements HistoricServive {
             Purchase savedPurchase = purchaseRepository.save(savedInPurchase);
 
             historic.get().getPurchases().add(savedPurchase);
-            historicRepository.save(new Historic());
+            historicRepository.save(historic.get());
+        } else {
+            Historic historic1 = new Historic();
+            historic1.setUserId(body.getUser_id());
 
-            // revisar essa lógica antes de fazer os testes no postman
+            List<VariationMessageDTO> variations = body.getVariations();
+            List<Variation> variationList = variations.stream().map(variation -> {
+                Variation map = modelMapper.map(variation, Variation.class);
 
+                Variation savedvariation = variationRepository.save(map);
+                return savedvariation;
+            }).toList();
+
+            Purchase savedPurchaseInHistoric = new Purchase();
+
+            savedPurchaseInHistoric.setPaymentId(body.getPayment_id());
+            savedPurchaseInHistoric.setTotal(body.getTotal());
+            savedPurchaseInHistoric.setDate(body.getDate());
+            savedPurchaseInHistoric.setVariations(variationList);
+
+            Purchase purchasesaved = purchaseRepository.save(savedPurchaseInHistoric);
+
+            historic1.getPurchases().add(purchasesaved);
+            historicRepository.save(historic1);
         }
     }
 }
