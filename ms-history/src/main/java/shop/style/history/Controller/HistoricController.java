@@ -9,7 +9,7 @@ import shop.style.history.DTO.HistoricDTO;
 import shop.style.history.Service.Impl.HistoricServiceImpl;
 
 @RestController
-@RequestMapping("/v1/historic/user/")
+@RequestMapping("/v1/historic/user")
 public class HistoricController {
 
     @Autowired
