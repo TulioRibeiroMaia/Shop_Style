@@ -3,12 +3,12 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/ms-customer/pom.xml" />
         <option value="$USER_HOME$/Downloads/ms-catalog/ms-catalog/pom.xml" />
         <option value="$PROJECT_DIR$/ms-catalog/pom.xml" />
         <option value="$PROJECT_DIR$/ms-checkout/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
         <option value="$PROJECT_DIR$/ms-history/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-customer/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,11 +1,0 @@
-
-o	java:S116"URename this field "product_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀÅÛÏøÿÿÿÿ
-^
-java:S1128"CRemove this unused import 'org.springframework.data.annotation.Id'.(áŠ¿¸ýÿÿÿÿ
-T
-java:S1128">Remove this unused import 'shop.style.catalog.Entity.Product'.(Á¾®ô
-V
-java:S1128"@Remove this unused import 'shop.style.catalog.Entity.Variation'.(ˆâ¹÷
-F
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(çÎã×ÿÿÿÿÿ

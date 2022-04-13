@@ -16,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka-server" target="11" />
+      <module name="ms-bff-shop" target="11" />
       <module name="ms-catalog" target="11" />
       <module name="ms-checkout" target="16" />
       <module name="ms-customer" target="11" />
@@ -25,6 +26,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eureka-server" options="-parameters" />
+      <module name="ms-bff-shop" options="-parameters" />
       <module name="ms-catalog" options="-parameters" />
       <module name="ms-checkout" options="-parameters" />
       <module name="ms-customer" options="-parameters" />

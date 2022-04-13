@@ -11,6 +11,7 @@ import shop.style.customer.Service.CustomerService;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+
 @RestController
 @RequestMapping("/v1/users")
 public class CustomerController {
@@ -26,7 +27,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CustomerDTO> searchCustomer(@PathVariable Long id) {
+    public ResponseEntity<CustomerDTO> findCustomerById(@PathVariable Long id) {
         CustomerDTO customer = this.service.findCustomerById(id);
         return ResponseEntity.ok(customer);
     }
