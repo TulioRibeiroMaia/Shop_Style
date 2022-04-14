@@ -30,6 +30,6 @@ public class PurchaseMessage {
     @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate date;
 
-    private List<VariationMessage> variationMessages;
+    private List<VariationMessage> variations;
 
 }

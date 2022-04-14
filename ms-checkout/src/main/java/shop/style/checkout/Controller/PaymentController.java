@@ -32,7 +32,7 @@ public class PaymentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PaymentDTO> searchPayment(@PathVariable Long id) {
+    public ResponseEntity<PaymentDTO> findById(@PathVariable Long id) {
         PaymentDTO payment = this.paymentService.findById(id);
         return ResponseEntity.ok(payment);
     }
