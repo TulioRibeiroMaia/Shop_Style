@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ProductDTO findById(@PathVariable String id) {
+    public ProductDTO searchProductById(@PathVariable String id) {
         return productService.searchProductByID(id);
     }
 
