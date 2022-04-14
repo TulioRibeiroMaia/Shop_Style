@@ -26,7 +26,7 @@ public class Purchase {
     @Id
     private String id;
 
-    private Long paymentId;
+    private Long payment_id;
 
     private BigDecimal total;
 

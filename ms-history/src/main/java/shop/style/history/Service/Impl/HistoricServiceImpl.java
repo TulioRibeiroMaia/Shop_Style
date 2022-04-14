@@ -60,7 +60,7 @@ public class HistoricServiceImpl implements HistoricServive {
         List<Purchase> purchases = historic.getPurchases();
 
         for (Purchase purchase : purchases){
-            PaymentDTO paymentDTO = checkoutClient.findById(purchase.getPaymentId());
+            PaymentDTO paymentDTO = checkoutClient.findById(purchase.getPayment_id());
             List<Variation> variations = purchase.getVariations();
             BigDecimal valueTotal = purchase.getTotal();
             LocalDate localDate = purchase.getDate();
@@ -85,7 +85,6 @@ public class HistoricServiceImpl implements HistoricServive {
 
     @Override
     public void  saveANewPurchase(PurchaseRabbitMessageDTO body) {
-
         Optional<Historic> historic = historicRepository.findByUserId(body.getUser_id());
         if (historic.isPresent()) {
             Purchase savedInPurchase = modelMapper.map(body, Purchase.class);
@@ -112,7 +111,7 @@ public class HistoricServiceImpl implements HistoricServive {
 
             Purchase savedPurchaseInHistoric = new Purchase();
 
-            savedPurchaseInHistoric.setPaymentId(body.getPayment_id());
+            savedPurchaseInHistoric.setPayment_id(body.getPayment_id());
             savedPurchaseInHistoric.setTotal(body.getTotal());
             savedPurchaseInHistoric.setDate(body.getDate());
             savedPurchaseInHistoric.setVariations(variationList);
