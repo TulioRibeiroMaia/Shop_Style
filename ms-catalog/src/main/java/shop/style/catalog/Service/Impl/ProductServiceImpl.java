@@ -60,8 +60,15 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> getAllProduct() {
         List<Product> products = productRepository.findAll();
 
-        return products.stream().map(product -> modelMapper.map(product, ProductDTO.class))
+        List<ProductDTO> productsDto = products.stream().map(product -> modelMapper.map(product, ProductDTO.class))
                 .collect(Collectors.toList());
+
+        productsDto.forEach(product -> {
+            product.getVariations().forEach(variation -> {
+                variation.setProduct_id(product.getId());
+            });
+        });
+        return productsDto;
     }
 
     @Override
