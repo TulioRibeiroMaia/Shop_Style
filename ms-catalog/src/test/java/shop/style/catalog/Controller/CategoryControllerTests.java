@@ -77,10 +77,24 @@ public class CategoryControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria cadastrar uma categoria caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotSaveACategoryIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/categorie"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria listar todas categorias e retornar status ok")
     void shouldListAllCategories() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/categories"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    @DisplayName("Não deveria listar as categorias caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotListACategoryIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/categorie"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
 
@@ -136,6 +150,13 @@ public class CategoryControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria atualizar uma categoria caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotUpdateACategoryIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/categorie"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria deletar uma categoria pelo seu ID")
     void shouldDeleteACategoryByID() throws Exception {
         CategoryFormDTO categoryFormDTO = new CategoryFormDTO("Casacos", true);
@@ -155,5 +176,12 @@ public class CategoryControllerTests {
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(categoryFormDTO)))
                 .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed());
+    }
+
+    @Test
+    @DisplayName("Não deveria deletar uma categoria caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotDeleteACategoryIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/categorie"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 }
