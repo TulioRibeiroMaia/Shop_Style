@@ -91,6 +91,13 @@ public class VariationControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria cadastrar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotSaveAVariationIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/variation"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria listar a variação pelo seu id retornar status ok")
     void shouldListAVariantionByID() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/variations/8769809098809"))
@@ -102,6 +109,13 @@ public class VariationControllerTests {
     void shouldNotListAVariantionIfDontInformID() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/variations/"))
                 .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed());
+    }
+
+    @Test
+    @DisplayName("Não deveria listar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotListAVariationIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/variation"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
@@ -161,6 +175,13 @@ public class VariationControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria atualizar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotUpdateAVariationIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/variation"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria deletar uma variação pelo seu ID")
     void shouldDeleteAProductByID() throws Exception {
         VariationFormDTO variationFormDTO = new VariationFormDTO("Cinza",
@@ -186,5 +207,12 @@ public class VariationControllerTests {
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(variationFormDTO)))
                 .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed());
+    }
+
+    @Test
+    @DisplayName("Não deveria deletar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotDeleteAVariationIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/variation"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 }

@@ -87,6 +87,13 @@ public class ProductControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria cadastrar um produto caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotSaveAProductIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/product"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria listar todos produtos e retornar status ok")
     void shouldListAllProducts() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/products"))
@@ -94,10 +101,31 @@ public class ProductControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria deletar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotListAllProductIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/product"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria listar o produto pelo seu id retornar status ok")
     void shouldListAProductByID() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/products/8769809098809"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    @DisplayName("Não deveria listar o produto se não informar o ID")
+    void shouldNotListAProductifNotInformID() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/products/"))
+                .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed());
+    }
+
+    @Test
+    @DisplayName("Não deveria listar um produto caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotListAProductIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/product"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
@@ -153,6 +181,13 @@ public class ProductControllerTests {
     }
 
     @Test
+    @DisplayName("Não deveria deletar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotUpdateAProductIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/product"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
     @DisplayName("Deveria deletar um produto pelo seu ID")
     void shouldDeleteAProductByID() throws Exception {
         ProductFormDTO productFormDTO = new ProductFormDTO("Casacos",
@@ -173,5 +208,12 @@ public class ProductControllerTests {
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(productFormDTO)))
                 .andExpect(MockMvcResultMatchers.status().isMethodNotAllowed());
+    }
+
+    @Test
+    @DisplayName("Não deveria deletar um produto caso tenha um erro na url e retornar NOT_FOUND")
+    void shouldNotDeleteAProductIfUrlIsWrong() throws Exception  {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/product"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 }
