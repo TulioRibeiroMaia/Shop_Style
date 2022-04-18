@@ -1,0 +1,7 @@
+
+V	java:S125f"<This block of commented-out lines of code should be removed.(›Âòşÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(§ü©Éùÿÿÿÿ
+d
+java:S3655$"NCall "product.isPresent()" or "!product.isEmpty()" before accessing the value.(ÿ™«Ş
+w
+java:S36553"\Call "byVariationsId.isPresent()" or "!byVariationsId.isEmpty()" before accessing the value.(º¯ö«ûÿÿÿÿ

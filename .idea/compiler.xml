@@ -9,12 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-history" />
         <module name="ms-customer" />
+        <module name="bff-shop" />
         <module name="ms-catalog" />
         <module name="ms-checkout" />
         <module name="eureka-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bff-shop" target="11" />
       <module name="eureka-server" target="11" />
       <module name="ms-bff-shop" target="11" />
       <module name="ms-catalog" target="11" />
@@ -25,6 +27,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bff-shop" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="ms-bff-shop" options="-parameters" />
       <module name="ms-catalog" options="-parameters" />

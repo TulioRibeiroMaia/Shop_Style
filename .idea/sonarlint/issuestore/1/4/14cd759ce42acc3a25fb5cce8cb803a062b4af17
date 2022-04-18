@@ -1,0 +1,5 @@
+
+o	java:S116"NRename this field "CPF" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êò˜Îúÿÿÿÿ8˜”‹Ïƒ0
+q
+java:S1104"OMake sex a static final constant or non-public and provide accessors if needed.(œÿ‘úÿÿÿÿ8”‹Ïƒ0
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ‚­	
