@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shop.style.catalog.DTO.Form.ProductFormDTO;
-import shop.style.catalog.DTO.ProductDTO;
 import shop.style.catalog.Entity.Category;
 import shop.style.catalog.Entity.Product;
 import shop.style.catalog.Exception.ResourceIsNotActive;
@@ -12,6 +11,7 @@ import shop.style.catalog.Exception.ResourceNotFoundException;
 import shop.style.catalog.Repository.CategoryRepository;
 import shop.style.catalog.Repository.ProductRepository;
 import shop.style.catalog.Service.ProductService;
+import shop.style.catalog.DTO.ProductDTO;
 
 import java.util.ArrayList;
 import java.util.List;

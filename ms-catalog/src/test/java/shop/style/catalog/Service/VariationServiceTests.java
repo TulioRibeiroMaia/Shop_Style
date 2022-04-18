@@ -1,5 +1,6 @@
 package shop.style.catalog.Service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,10 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import shop.style.catalog.DTO.Form.VariationFormDTO;
-import shop.style.catalog.DTO.VariationDTO;
 import shop.style.catalog.Enum.EnumSize;
 import shop.style.catalog.Exception.ResourceNotFoundException;
+import shop.style.catalog.DTO.Form.VariationFormDTO;
+import shop.style.catalog.DTO.VariationDTO;
+import shop.style.catalog.Service.VariationService;
 
 import java.math.BigDecimal;
 
@@ -38,7 +40,7 @@ public class VariationServiceTests {
         VariationDTO savedVariation = this.variationService.saveVariation(variationFormDTO);
 
         assertNotNull(savedVariation);
-        assertEquals(EnumSize.G, savedVariation.getSize());
+        Assertions.assertEquals(EnumSize.G, savedVariation.getSize());
         assertEquals("Blue", savedVariation.getColor());
     }
 
@@ -48,7 +50,7 @@ public class VariationServiceTests {
         VariationDTO variationDTO = this.variationService.searchVariation("id");
 
         assertNotNull(variationDTO);
-        assertEquals(EnumSize.GG, variationDTO.getSize());
+        Assertions.assertEquals(EnumSize.GG, variationDTO.getSize());
     }
 
     @Test

@@ -8,9 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import shop.style.catalog.Exception.ResourceNotFoundException;
 import shop.style.catalog.DTO.CategoryDTO;
 import shop.style.catalog.DTO.Form.CategoryFormDTO;
-import shop.style.catalog.Exception.ResourceNotFoundException;
+import shop.style.catalog.Service.CategoryService;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,7 +45,6 @@ public class CategoryServiceTests {
         assertNotNull(categoryDTO);
         assertEquals("623dcde37ee97b2fb77a6046", categoryDTO.getId());
     }
-
 
     @Test
     @DisplayName("Deve atualizar os dados de uma categoria pelo ID informado")

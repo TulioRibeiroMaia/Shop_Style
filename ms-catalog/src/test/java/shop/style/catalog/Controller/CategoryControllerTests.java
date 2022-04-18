@@ -15,9 +15,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import shop.style.catalog.Controller.CategoryController;
 import shop.style.catalog.DTO.Form.CategoryFormDTO;
 import shop.style.catalog.Service.Impl.CategoryServiceImpl;
-
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -93,10 +93,10 @@ public class CategoryControllerTests {
     @Test
     @DisplayName("Não deveria listar as categorias caso tenha um erro na url e retornar NOT_FOUND")
     void shouldNotListACategoryIfUrlIsWrong() throws Exception  {
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/categorie"))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/v1/categorie"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
-
 
 //    @Test
 //    @DisplayName("Deveria listar os produtos de uma determinada categoria")

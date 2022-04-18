@@ -3,9 +3,9 @@ package shop.style.catalog.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import shop.style.catalog.Service.CategoryService;
 import shop.style.catalog.DTO.CategoryDTO;
 import shop.style.catalog.DTO.Form.CategoryFormDTO;
-import shop.style.catalog.Service.CategoryService;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shop.style.catalog.DTO.CategoryDTO;
 import shop.style.catalog.DTO.Form.CategoryFormDTO;
-import shop.style.catalog.DTO.ProductDTO;
 import shop.style.catalog.Entity.Category;
 import shop.style.catalog.Entity.Product;
 import shop.style.catalog.Exception.ResourceNotFoundException;
 import shop.style.catalog.Repository.CategoryRepository;
 import shop.style.catalog.Repository.ProductRepository;
 import shop.style.catalog.Service.CategoryService;
+import shop.style.catalog.DTO.ProductDTO;
 
 import java.util.List;
 import java.util.Optional;

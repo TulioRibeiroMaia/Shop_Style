@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import shop.style.catalog.Controller.ProductController;
 import shop.style.catalog.DTO.Form.ProductFormDTO;
 import shop.style.catalog.Service.Impl.ProductServiceImpl;
 
@@ -101,7 +102,7 @@ public class ProductControllerTests {
     }
 
     @Test
-    @DisplayName("Não deveria deletar uma variação caso tenha um erro na url e retornar NOT_FOUND")
+    @DisplayName("Não deveria listar um produto caso tenha um erro na url e retornar NOT_FOUND")
     void shouldNotListAllProductIfUrlIsWrong() throws Exception  {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/product"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
@@ -129,7 +130,7 @@ public class ProductControllerTests {
     }
 
     @Test
-    @DisplayName("Deveria atualizar os dados de um producto pelo seu ID(nome e descrição alterados)")
+    @DisplayName("Deveria atualizar os dados de um produto pelo seu ID(nome e descrição alterados)")
     void shouldUpdateAProductsByID() throws Exception {
         ProductFormDTO productFormDTO = new ProductFormDTO("Casacos",
                 "Casacos de moletom",
@@ -142,8 +143,8 @@ public class ProductControllerTests {
     }
 
     @Test
-    @DisplayName("Não deveria atualizar os dados de uma variação se um campo estiver vazio")
-    void shouldNotUpdateAVariationIfEmptyField() throws Exception {
+    @DisplayName("Não deveria atualizar os dados de um produto se um campo estiver vazio")
+    void shouldNotUpdateAProductIfEmptyField() throws Exception {
         ProductFormDTO productFormDTO = new ProductFormDTO(" ",
                 "Casacos de moletom",
                 true,

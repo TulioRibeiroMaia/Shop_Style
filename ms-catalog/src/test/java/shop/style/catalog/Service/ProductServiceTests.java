@@ -8,11 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import shop.style.catalog.Exception.ResourceNotFoundException;
 import shop.style.catalog.DTO.Form.ProductFormDTO;
 import shop.style.catalog.DTO.ProductDTO;
-import shop.style.catalog.Exception.ResourceNotFoundException;
+import shop.style.catalog.Service.ProductService;
 
-import java.time.LocalDate;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;

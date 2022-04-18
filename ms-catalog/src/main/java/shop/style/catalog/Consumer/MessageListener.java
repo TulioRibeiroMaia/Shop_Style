@@ -4,10 +4,10 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import shop.style.catalog.Config.MQConfig;
+import shop.style.catalog.Repository.VariationRepository;
+import shop.style.catalog.Exception.VariationNotFoundException;
 import shop.style.catalog.DTO.RabbitMessage.VariationMessageDTO;
 import shop.style.catalog.Entity.Variation;
-import shop.style.catalog.Exception.VariationNotFoundException;
-import shop.style.catalog.Repository.VariationRepository;
 
 import java.util.List;
 

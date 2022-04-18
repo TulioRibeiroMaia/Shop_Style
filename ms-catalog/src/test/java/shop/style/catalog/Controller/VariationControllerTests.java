@@ -15,8 +15,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import shop.style.catalog.DTO.Form.VariationFormDTO;
+import shop.style.catalog.Controller.VariationController;
 import shop.style.catalog.Enum.EnumSize;
+import shop.style.catalog.DTO.Form.VariationFormDTO;
 import shop.style.catalog.Service.Impl.VariationServiceImpl;
 
 import java.math.BigDecimal;
