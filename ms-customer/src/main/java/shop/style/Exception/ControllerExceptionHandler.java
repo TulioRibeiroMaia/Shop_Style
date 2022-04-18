@@ -1,4 +1,4 @@
-package shop.style.customer.Exception;
+package shop.style.Exception;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
-import shop.style.customer.Exception.DTO.FieldErrorDTO;
+import shop.style.Exception.DTO.FieldErrorDTO;
 import org.hibernate.exception.ConstraintViolationException;
 
 import java.util.ArrayList;

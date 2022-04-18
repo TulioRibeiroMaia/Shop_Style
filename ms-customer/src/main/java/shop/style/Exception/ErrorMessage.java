@@ -1,4 +1,4 @@
-package shop.style.customer.Exception;
+package shop.style.Exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

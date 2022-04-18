@@ -1,4 +1,4 @@
-package shop.style.customer.Service;
+package shop.style.Service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,10 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import shop.style.customer.DTO.CustomerDTO;
-import shop.style.customer.DTO.FormDTO.CustomerFormDTO;
-import shop.style.customer.Enums.Sex;
-import shop.style.customer.Exception.ResourceNotFoundException;
+import shop.style.DTO.CustomerDTO;
+import shop.style.DTO.FormDTO.CustomerFormDTO;
+import shop.style.Enums.Sex;
+import shop.style.Exception.ResourceNotFoundException;
+import shop.style.Service.CustomerService;
 
 import java.time.LocalDate;
 

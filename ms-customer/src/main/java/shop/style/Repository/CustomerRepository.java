@@ -1,8 +1,8 @@
-package shop.style.customer.Repository;
+package shop.style.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import shop.style.customer.Entity.Customer;
+import shop.style.Entity.Customer;
 
 import java.util.Optional;
 @Repository

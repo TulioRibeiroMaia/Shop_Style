@@ -1,7 +1,7 @@
-package shop.style.customer.Service;
+package shop.style.Service;
 
-import shop.style.customer.DTO.CustomerDTO;
-import shop.style.customer.DTO.FormDTO.CustomerFormDTO;
+import shop.style.DTO.CustomerDTO;
+import shop.style.DTO.FormDTO.CustomerFormDTO;
 
 public interface CustomerService {
 

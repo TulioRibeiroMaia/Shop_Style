@@ -1,12 +1,12 @@
-package shop.style.customer.Controller;
+package shop.style.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import shop.style.customer.DTO.CustomerDTO;
-import shop.style.customer.DTO.FormDTO.CustomerFormDTO;
-import shop.style.customer.Service.CustomerService;
+import shop.style.DTO.CustomerDTO;
+import shop.style.DTO.FormDTO.CustomerFormDTO;
+import shop.style.Service.CustomerService;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;

@@ -1,14 +1,14 @@
-package shop.style.customer.Service.Impl;
+package shop.style.Service.Impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import shop.style.customer.DTO.CustomerDTO;
-import shop.style.customer.DTO.FormDTO.CustomerFormDTO;
-import shop.style.customer.Entity.Customer;
-import shop.style.customer.Repository.CustomerRepository;
-import shop.style.customer.Service.CustomerService;
-import shop.style.customer.Exception.ResourceNotFoundException;
+import shop.style.Entity.Customer;
+import shop.style.Exception.ResourceNotFoundException;
+import shop.style.DTO.CustomerDTO;
+import shop.style.DTO.FormDTO.CustomerFormDTO;
+import shop.style.Repository.CustomerRepository;
+import shop.style.Service.CustomerService;
 
 import java.util.Optional;
 

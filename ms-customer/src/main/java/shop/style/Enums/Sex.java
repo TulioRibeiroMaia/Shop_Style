@@ -1,4 +1,4 @@
-package shop.style.customer.Enums;
+package shop.style.Enums;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

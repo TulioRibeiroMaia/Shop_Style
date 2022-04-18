@@ -1,4 +1,4 @@
-package shop.style.customer;
+package shop.style;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

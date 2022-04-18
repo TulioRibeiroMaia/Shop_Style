@@ -1,4 +1,4 @@
-package shop.style.customer.Exception.DTO;
+package shop.style.Exception.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

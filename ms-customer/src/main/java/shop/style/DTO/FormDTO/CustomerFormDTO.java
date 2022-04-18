@@ -1,4 +1,4 @@
-package shop.style.customer.DTO.FormDTO;
+package shop.style.DTO.FormDTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
-import shop.style.customer.Enums.Sex;
+import shop.style.Enums.Sex;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
