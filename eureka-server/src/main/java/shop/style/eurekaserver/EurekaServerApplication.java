@@ -1,4 +1,4 @@
-package shop.style;
+package shop.style.eurekaserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

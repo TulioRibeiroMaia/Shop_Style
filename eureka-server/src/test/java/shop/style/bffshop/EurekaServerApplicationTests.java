@@ -1,4 +1,4 @@
-package shop.style;
+package shop.style.bffshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
